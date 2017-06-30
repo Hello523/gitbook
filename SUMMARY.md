@@ -41,6 +41,7 @@
 * [CSS实现的一些效果](CSS/README.md)
     * [CSS实现单行多行添加省略号](CSS/ellipsis.md)
     * [CSS常见布局解决方案](CSS/layout.md)
+    * [flex局解决方案](CSS/flex.md)
 * [开发总结](conclusion/README.md)
     * [手机端开发注意事项](conclusion/phone.md)
     * [电脑桌面应用开发](conclusion/section2.md)
