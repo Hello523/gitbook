@@ -1,4 +1,4 @@
-# Summary
+﻿# Summary
 
 * [Introduction](README.md)
 * [javaScript深入浅出](javaScript/README.md)
@@ -22,8 +22,7 @@
 * [React](React/README.md)
     * [webpack项目搭建](React/webpack.md)
     * [React项目的搭建](React/react.md)
-    * [React-Router使用入门](React/router.md)
-    * [Redux使用入门](React/redux.md)
+       * [Redux使用入门](React/redux.md)
     * [Mobx使用入门](React/mobx.md)
     * [React生命周期](React/lifecyce.md)
 * [vue](vue/README.md)
