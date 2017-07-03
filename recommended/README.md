@@ -15,3 +15,4 @@
 ######[gsap动画](http://www.cnblogs.com/vaney/p/4502480.html)
 ######[ant动画](https://motion.ant.design/components/tween-one)
 ######[layabox HTML5引擎](https://ldc.layabox.com/doc/?nav=ch-as-0-3-0)
+######[Webpack-dev-server结合后端服务器的热替换配置](http://www.jianshu.com/p/8adf4c2bfa51)
