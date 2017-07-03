@@ -1,6 +1,6 @@
 # Redux使用入门
 [参考网站](http://cn.redux.js.org/)
-###1. 前言
+### 1. 前言
 
 随着WEB应用变得越来越复杂，再加上node前后端分离越来越流行，那么对数据流动的控制就显得越发重要。redux是在flux的基础上产生的，基本思想是保证数据的单向流动，同时便于控制、使用、测试。
 
@@ -8,9 +8,9 @@ redux不依赖于任意框架(库)，只要subscribe相应框架(库)的内部�
 
 那么如何使用redux呢？下面一步步进行解析，并带有源码说明，不仅做到 知其然 ，还要做到 知其所以然 。
 
-###2. 主干逻辑介绍(createStore)
+### 2. 主干逻辑介绍(createStore)
 
-####2.1 简单demo入门
+#### 2.1 简单demo入门
 
 先来一个直观的认识：
 ```
@@ -52,7 +52,7 @@ store.dispatch(action1); // 'the year is: 2016
 store.dispatch(action2); // 'the year is: 2017
 store.dispatch(action3); // 'the year is: 2016
 ```
-####2.2 挖掘createStore实现
+#### 2.2 挖掘createStore实现
 
 为了说明主要问题，仅列出其中的关键代码，全部代码，可以点击 这里 阅读。
 
@@ -122,11 +122,11 @@ export default function createStore(reducer, initialState) {
 ```
 如果还按照2.1的方式进行开发，那跟flux没有什么大的区别，需要手动解决很多问题，那redux如何将整个流程模板化(Boilerplate)呢?
 
-###3. 保证store的唯一性
+### 3. 保证store的唯一性
 
 随着应用越来越大，一方面，不能把所有的数据都放到一个reducer里面，另一方面，为每个reducer创建一个store，后续store的维护就显得比较麻烦。如何将二者统一起来呢？
 
-####3.1 demo入手
+#### 3.1 demo入手
 
 通过combineReducers将多个reducer合并成一个rootReducer: // 创建两个reducer: count year function count (state, action) { state = state || {count: 1} switch (action.type) { default: return state; } } function year (state, action) { state = state || {year: 2015} switch (action.type) { default: return state; } }
 ```
@@ -150,7 +150,7 @@ console.log(util.inspect(store));
 //   replaceReducer: [Function: replaceReducer]
 // }
 ```
-####3.2 源码解析combineReducers
+#### 3.2 源码解析combineReducers
 ```
 // 高阶函数，最后返回一个reducer
 export default function combineReducers(reducers) {
@@ -172,9 +172,9 @@ export default function combineReducers(reducers) {
 
 }
 ```
-###4. 自动实现dispatch
+### 4. 自动实现dispatch
 
-####4.1 demo介绍
+#### 4.1 demo介绍
 
 在2.1中，要执行state的改变，需要手动dispatch:
 
@@ -186,7 +186,7 @@ var bindActionCreators = require('redux').bindActionCreators;
 // 可以在具体的应用框架隐式进行该过程(例如react-redux的connect组件中)
 bindActionCreators(action)
 ```
-####4.2 源码解析
+#### 4.2 源码解析
 ```
 // 隐式实现dispatch
 function bindActionCreator(actionCreator, dispatch) {
@@ -202,9 +202,9 @@ export default function bindActionCreators(actionCreators, dispatch) {
   )
 }
 ```
-###5. 支持插件 - 对dispatch的改造
+### 5. 支持插件 - 对dispatch的改造
 
-####5.1 插件使用demo
+#### 5.1 插件使用demo
 
 一个action可以是同步的，也可能是异步的，这是两种不同的情况， dispatch执行的时机是不一样的:
 ```
@@ -240,7 +240,7 @@ var store = applyMiddleware([thunk])(createStore);
 // 经过处理的dispatch方法
 console.log(store.dispatch);
 ```
-####5.2 源码解析
+#### 5.2 源码解析
 ```
 // next: 其实就是createStore
 export default function applyMiddleware(...middlewares) {
@@ -276,7 +276,7 @@ function thunkMiddleware({ dispatch, getState }) {
       next(action);
  }
  ```
-###6. 与react框架的结合
+### 6. 与react框架的结合
 
 ####6.1 基本使用
 
@@ -309,7 +309,7 @@ function select(state) {
 }
 export default connect(select, actionCreators)(MyComponent)
 ```
-####6.2 Provider – 提供store
+#### 6.2 Provider – 提供store
 
 React通过Context属性，可以将属性(props)直接给子孙component，无须通过props层层传递, Provider仅仅起到获得store，然后将其传递给子孙元素而已:
 ```
@@ -338,7 +338,7 @@ export default class Provider extends Component {
   }
 }
 ```
-####6.3 connect – 获得store及dispatch(actionCreator)
+#### 6.3 connect – 获得store及dispatch(actionCreator)
 
 connect是一个高阶函数，首先传入mapStateToProps、mapDispatchToProps，然后返回一个生产 Component 的函数(wrapWithConnect)，然后再将真正的Component作为参数传入wrapWithConnect(MyComponent)，这样就生产出一个经过包裹的Connect组件，该组件具有如下特点:
 
@@ -391,5 +391,5 @@ export default function connect(mapStateToProps, mapDispatchToProps, mergeProps,
     }
   }
 ```
-###7. redux与react-redux关系图
+### 7. redux与react-redux关系图
 <img src='images/redux.png!web'>
