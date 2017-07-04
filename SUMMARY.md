@@ -34,6 +34,8 @@
     * [项目的搭建](html/start.md)
 * [nextjs](next/README.md)
     * [项目的搭建](next/init.md)
+* [nextjs](next/README.md)
+    * [项目的搭建](next/init.md)
 * [特效案例](specialEffects/README.md)
     * [css特效](specialEffects/section1.md)
     * [svg特效](specialEffects/section2.md)
@@ -86,4 +88,3 @@
 * [帮助文档](help/README.md)
     * [Markdown](help/Markdown.md)
 * [推荐网站](recommended/README.md)
-
