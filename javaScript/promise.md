@@ -1,5 +1,5 @@
 # promise原理解析
-#####promise模式
+##### promise模式
 
 这几种方式的可维护性逐级递增，理解难度也逐级递增。这篇总结也是针对promise模式的。
 
@@ -12,7 +12,7 @@ promise模式在任何时刻都有三种状态：已完成（resolved），未�
 
 那promise模式下，返回的数据如何在各个回调函数之间传播呢，通过resolve方法，你可以将一个函数的返回值作为参数传递给另一个函数，并且将另一个函数的返回值作为参数再传递给下一个函数……像一条“链”一样无限的这么做下去。
 
-#####代码如下：
+##### 代码如下：
 
 ```
 //constructor
@@ -76,7 +76,7 @@ console.log("我是最后吗");
 	complete: 执行回调
 	then：绑定回调函数
 
-#####第一步
+##### 第一步
 ```
 var delay1 = function() {
 	setTimeout(function() {
@@ -97,13 +97,13 @@ var callback1 = function(re) {
 //callback1和callback2都是要通过then方法注册的回调函数， 其中callback1通过resolve方法把数据往下传递。
 ```
 
-#####第三步
+##### 第三步
 ```
 delay1().then(callback1).then(callback2);
 //delay1() 方法执行完， 因为返回了一个promise对象， 所以可以再调用then() 方法为delay1() 的setTimeout异步执行操作指定回调函数, 又因为then() 方法也返回的是promise对象， 所以还可以再调用then方法
 ```
 
-#####第四步
+##### 第四步
 ```
 setTimeout(function() {
 	promise.resolve('数据1');
@@ -112,14 +112,14 @@ setTimeout(function() {
 //这里调用promise的resolve() 方法， 指定了一个成功状态， 并把数据1作为参数。
 ```
 
-#####第五步
+##### 第五步
 ```
 resolve: function(result) {
   this.complete("resolve", result);
 },
 ```
 
-#####第六步：循环执行回调，将上一个回调的结果传递给下一个回调
+##### 第六步：循环执行回调，将上一个回调的结果传递给下一个回调
 ```
 complete: function(type, result) {
 	while(this.callbacks[0]) {

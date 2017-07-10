@@ -20,6 +20,7 @@
     * [Array.prototype.slice应用和原理探析](javaScript/slice.md)
     * [javaScript的call,apply,bind](javaScript/call.md)
     * [touch事件学习](javaScript/touch.md)
+    * [正则表达式](javaScript/regularExpression.md)
 * [React](React/README.md)
     * [webpack项目搭建](React/webpack.md)
     * [React项目的搭建](React/react.md)
