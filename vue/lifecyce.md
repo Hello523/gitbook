@@ -1,5 +1,5 @@
 # vue生命周期
-###下面的表格是1.0+版本与2.0+版本的对比
+### 下面的表格是1.0+版本与2.0+版本的对比
 |vue1.0+|vue2.0|解释|
 |-----|-----|:-----:|
 |init|beforeCreate|组件实例刚被创建，组件属性计算之前，如data属性|
@@ -15,7 +15,7 @@
 |detached|-|不做解释|
 |beforeDestroy|beforeDestroy|组件销毁前调用|
 |destroyed|destroyed|组件销毁后调用|
-###用代码说清这些
+### 用代码说清这些
 ```
 <!DOCTYPE html>
 <html>
@@ -96,6 +96,6 @@
 </html>
 ```
 
-###附一张图后面慢慢理解
+### 附一张图后面慢慢理解
 
 ![生命周期](./images/lifecyce/lifecyce.png)
