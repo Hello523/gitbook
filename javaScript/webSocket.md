@@ -1,9 +1,9 @@
 # webSocket
-####目录结构如下
+#### 目录结构如下
 
 ![目录](./images/webSocket/directory.png)
 
-#####WebSocketTestChat.java里的代码:
+##### WebSocketTestChat.java里的代码:
 ```
 package com.moven.websockets;
 
@@ -69,7 +69,7 @@ public class WebSocketTestChat {
 }
 
 ```
-#####chat.html里边的代码
+##### chat.html里边的代码
 ```
 <!DOCTYPE html>
 <html>
@@ -126,7 +126,7 @@ public class WebSocketTestChat {
 </html>
 
 ```
-#####web.xml里边的代码
+##### web.xml里边的代码
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -139,7 +139,7 @@ public class WebSocketTestChat {
 
 </web-app>
 ```
-#####pom.xml里边的代码
+##### pom.xml里边的代码
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
