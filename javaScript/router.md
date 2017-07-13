@@ -3,7 +3,7 @@
 
 在单页应用上，前端路由并不陌生。很多前端框架也会有独立开发或推荐配套使用的路由系统。那么，当我们在谈前端路由的时候，还可以谈些什么？本文将简要分析并实现一个的前端路由，并对 react-router 进行分析。
 
-###一个极简前端路由实现
+### 一个极简前端路由实现
 
 说一下前端路由实现的简要原理，以 hash 形式（也可以使用 History API 来处理）为例，当 url 的 hash 发生变化时，触发 hashchange 注册的回调，回调中去进行不同的操作，进行不同的内容的展示。直接看代码或许更直观。
 ```
@@ -54,7 +54,7 @@ Router.route('/green', function() {
 ```
 以上为一个前端路由的简单实现，点击查看完整代码，虽然简单，但实际上很多路由系统的根基都立于此，其他路由系统主要是对自身使用的框架机制的进行配套及优化，如与 react 配套的 react-router。
 
-###react-router 分析
+### react-router 分析
 
 react-router 与 history 结合形式
 
@@ -102,7 +102,7 @@ historyModule.updateLocation();
 可看到 historyModule 中含有机制：historyModule.updateLocation() -> listener( )，Router 通过对其进行包装开发，针对 historyModule 的机制对 Router 也起到了作用，即historyModule.updateLocation() 将触发 Router.listen 中的回调函数 。点击查看完整代码
 这种包装形式能够充分利用原对象（historyModule ）的内部机制，减少开发成本，也更好的分离包装函数（Router）的逻辑，减少对原对象的影响。
 
-###react-router 使用方式
+### react-router 使用方式
 
 react-router 以 react component 的组件方式提供 API， 包含 Router，Route，Redirect，Link 等等，这样能够充分利用 react component 提供的生命周期特性，同时也让定义路由跟写 react component 达到统一，如下
 ```
@@ -202,7 +202,7 @@ function listen(listener) {
     changeListeners.push(listener);
 }
 ```
-###总结
+### 总结
 
 可以将以上 react-router 的整个包装闭环总结为
 

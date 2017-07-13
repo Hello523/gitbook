@@ -1,21 +1,21 @@
 # Array.prototype.slice应用和原理探析
-###问题由来
+### 问题由来
 Array.prototype.slice常见于两种调用场景：
 
-#####一是对函数arguments对象的转换
+##### 一是对函数arguments对象的转换
 
 Array.prototype.slice.call(arguments)
 
-#####二是类似jQuery原型对象的定义中
+##### 二是类似jQuery原型对象的定义中
 
 toArray: function() {
 return slice.call( this, 0 );
 },
 
 有必要探究一番其使用方式和内部原理。
-###问题拆解
+### 问题拆解
 Array.prototype.slice作为Array.prototype对象的一个方法，对其调用在API中有详细说明，并不费解，对Array.prototype.slice的疑问可拆解为两个方面：一是该函数究竟返回什么对象？二是该函数可应用于什么对象？即非数组对象需要满足什么条件才能借用(复用)该函数？
-###该函数究竟返回什么对象
+### 该函数究竟返回什么对象
 为了探究返回对象的类型信息，写一个简单的对象工具集合：
 ```
 var objs = {  
@@ -38,7 +38,7 @@ objs.descType(v);
 // o instanceof Array:true
 ```
 数组对象自身上调用slice方法当然不必再使用“var v = Array.prototype.slice.call(['a',true,9]);”这种方法，虽然是可以这样用的，结果表明返回的对象的确是Array类型的对象。
-###该函数可应用于什么对象
+### 该函数可应用于什么对象
 1 既然该方法是作为Array.prototype的方法，那么数组对象本身当然可以调用该方法。
 
 2 Arguments类型的对象可正确调用该函数。
@@ -110,7 +110,7 @@ objs.descType(Array.prototype.slice.call({'length':5,'0':'gebilaowang','1':'xime
 ```
 ok，大功告成，结果果然是预期数组：["gebilaowang","ximenqin",undefined,undefined,undefined]。因此结论是：只有具备"可转换为数值型的length属性"并且同时具备"索引属性"的对象才可以正确被slice函数处理(返回或者说转换为预期数组)，这种类型的对象经过查阅果然有一种专属称谓--Array-like Object。
 
-###3 Array-like对象可正确调用该函数。
+### 3 Array-like对象可正确调用该函数。
 
 现在来探究jQuery中对Array.prototype.slice方法的使用场景，jQuery对各种原型方法的应用当然是非常牛逼的甚至达到炉火纯青的境界，其实jQuery对象本身就是一个Array-like对象，因为其有length属性，也有索引属性，分析其初始化构造函数(1.6.1版本)即可明白(特别注意对this.length和this[index]属性的设置)：
 ```
@@ -225,7 +225,7 @@ jQuery.prototype.init: function( selector, context, rootjQuery ) {
        },  
 ```
 这是分析并理解jQuery背后原理的最基础最前提的一步。
-###原理探析
+### 原理探析
 ```
 function slice(start, end) {   
     var startToUse = start || 0,   

@@ -1,5 +1,5 @@
-###获取鼠标的位置
-####获取鼠标的位置可以分为多个情况
+### 获取鼠标的位置
+#### 获取鼠标的位置可以分为多个情况
 1. 获取鼠标相对于浏览器窗口的位置
 ```
 let x = event.clientX;
@@ -59,7 +59,7 @@ function getCurrent(elem){
 
 主要是left和bottom要解释一下，left是指右边到页面最左边的距离，bottom是指底边到页面顶边的距离。
 
-######(ie5以上都能支持，但是又一点点地方需要修正一下，IE67的left、top会少2px,并且没有width、height属性。)
+###### (ie5以上都能支持，但是又一点点地方需要修正一下，IE67的left、top会少2px,并且没有width、height属性。)
 
 ![图解](http://www.51xuediannao.com/uploads/allimg/160811/2340295W5-0.jpg?_=6179964)
 
