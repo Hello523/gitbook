@@ -1,4 +1,4 @@
-﻿# Summary
+# Summary
 
 * [Introduction](README.md)
 * [javaScript深入浅出](javaScript/README.md)
@@ -24,7 +24,7 @@
 * [React](React/README.md)
     * [webpack项目搭建](React/webpack.md)
     * [React项目的搭建](React/react.md)
-       * [Redux使用入门](React/redux.md)
+        * [Redux使用入门](React/redux.md)
     * [Mobx使用入门](React/mobx.md)
     * [React生命周期](React/lifecyce.md)
 * [vue](vue/README.md)
@@ -46,6 +46,7 @@
     * [CSS常见布局解决方案](CSS/layout.md)
     * [flex局解决方案](CSS/flex.md)
     * [css文本自动换行](CSS/enter.md)
+    * [css文本属性](CSS/text.md)
 * [开发总结](conclusion/README.md)
     * [手机端开发注意事项](conclusion/phone.md)
     * [电脑桌面应用开发](conclusion/section2.md)
@@ -90,3 +91,4 @@
 * [帮助文档](help/README.md)
     * [Markdown](help/Markdown.md)
 * [推荐网站](recommended/README.md)
+
