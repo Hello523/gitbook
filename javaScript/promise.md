@@ -67,7 +67,7 @@ console.log("我是最后吗");
  *数据2
  */
 ```
-#####代码分析
+##### 代码分析
 我们可看到一个简单的promise对象的构造函数的结构：
 
 	callbacks: 用于管理回调函数
@@ -87,7 +87,7 @@ var delay1 = function() {
 //这个函数通过setTimeout方法， 异步传递一个数据1， 并返回一个promise对象(必须)。
 ```
 
-#####第二步
+##### 第二步
 ```
 var callback1 = function(re) {
 	re = re + '数据2';
